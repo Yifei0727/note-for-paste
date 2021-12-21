@@ -18,3 +18,8 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove --purge -y && sudo
 ```
 mvn versions:set -DnewVersion=a.b.c.d
 ```
+
+
+```
+sudo echo 'Acquire::http { Proxy "http://X.X.X.X:P"; };' > /etc/apt/apt.conf.d/30proxy 
+```
