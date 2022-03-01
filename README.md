@@ -21,5 +21,25 @@ mvn versions:set -DnewVersion=a.b.c.d
 
 
 ```
-sudo echo 'Acquire::http { Proxy "http://X.X.X.X:P"; };' > /etc/apt/apt.conf.d/30proxy 
+# echo 'Acquire::http { Proxy "http://X.X.X.X:P"; };' > /etc/apt/apt.conf.d/30proxy 
+```
+
+* install address  or use netplay cli
+`ubuntu` `system-admin` `shell` `debian`
+
+```
+vi /etc/netplan/00-installer-config.yaml 
+```
+then edit
+```
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enpXXsXX:  
+      addresses:
+        - N.N.N.N/N
+      gateway4: N.N.N.N
+      nameservers:
+        addresses:
+          - N.N.N.N
 ```
