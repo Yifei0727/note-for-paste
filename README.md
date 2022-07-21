@@ -24,6 +24,12 @@ mvn versions:set -DnewVersion=a.b.c.d
 # echo 'Acquire::http { Proxy "http://X.X.X.X:P"; };' > /etc/apt/apt.conf.d/30proxy 
 ```
 
+```
+# sudo snap set system proxy.http='http://x.x.x.x:p'
+# sudo snap set system proxy.https='http://x.x.x.x:p'
+# sudo snap get system proxy
+```
+
 * install address  or use netplay cli
 `ubuntu` `system-admin` `shell` `debian`
 
