@@ -19,16 +19,18 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove --purge -y && sudo
 mvn versions:set -DnewVersion=a.b.c.d
 ```
 
-
 ```
-# echo 'Acquire::http { Proxy "http://X.X.X.X:P"; };' > /etc/apt/apt.conf.d/30proxy 
+# sudo bash -c 'echo \'Acquire::http { Proxy "http://X.X.X.X:P"; };\' ' > /etc/apt/apt.conf.d/30proxy 
+# sudo bash -c 'echo \'Acquire::https { Proxy "http://X.X.X.X:P"; };\'' >> /etc/apt/apt.conf.d/30proxy 
 ```
+apt-cacher default port P is `3142`
 
 ```
 # sudo snap set system proxy.http='http://x.x.x.x:p'
 # sudo snap set system proxy.https='http://x.x.x.x:p'
 # sudo snap get system proxy
 ```
+squid default port P is `3128`
 
 * install address  or use netplay cli
 `ubuntu` `system-admin` `shell` `debian`
@@ -48,4 +50,19 @@ network:
       nameservers:
         addresses:
           - N.N.N.N
+```
+
+* docker
+
+`docker` 
+
+run instance shell for debug etc.
+```
+docker exec -ti {docker-instance} bash
+```
+
+test docker vlan quickly
+```
+docker network create --driver macvlan --subnet 192.168.0.1/24 --gateway 192.168.0.1 -o parent={if-name} work
+docker run --net work --ip 192.168.0.123 -it --name macvlan-test --rm alpine /bin/sh
 ```
