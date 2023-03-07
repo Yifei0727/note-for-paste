@@ -20,8 +20,8 @@ mvn versions:set -DnewVersion=a.b.c.d
 ```
 
 ```
-# sudo bash -c 'echo \'Acquire::http { Proxy "http://X.X.X.X:P"; };\' ' > /etc/apt/apt.conf.d/30proxy 
-# sudo bash -c 'echo \'Acquire::https { Proxy "http://X.X.X.X:P"; };\'' >> /etc/apt/apt.conf.d/30proxy 
+sudo bash -c "echo 'Acquire::http { Proxy \"http://x.x.x.x:p\"; };'"  > /etc/apt/apt.conf.d/30proxy
+sudo bash -c "echo 'Acquire::https { Proxy \"http://x.x.x.x:p\"; };'"  >> /etc/apt/apt.conf.d/30proxy
 ```
 apt-cacher default port P is `3142`
 
