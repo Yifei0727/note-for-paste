@@ -66,3 +66,10 @@ test docker vlan quickly
 docker network create --driver macvlan --subnet 192.168.0.1/24 --gateway 192.168.0.1 -o parent={if-name} work
 docker run --net work --ip 192.168.0.123 -it --name macvlan-test --rm alpine /bin/sh
 ```
+
+
+
+```sh
+sudo rm -f /etc/ssh/ssh_host_*
+sudo ssh-keygen -A
+```
